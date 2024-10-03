@@ -3,7 +3,6 @@
 [![poco-ci](https://github.com/pocoproject/poco/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/pocoproject/poco/actions/workflows/ci.yml)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/370/badge)](https://bestpractices.coreinfrastructure.org/projects/370)
 
-
 ### POCO (Portable Components) C++ Libraries are:
 
 - A collection of C++ class libraries, conceptually similar to the Java Class Library or the .NET Framework.
