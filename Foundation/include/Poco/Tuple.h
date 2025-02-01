@@ -527,36 +527,36 @@ struct Tuple<T0,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15,T16,T17,T18,T
 
 	template <int N>
 	typename TypeGetter<N, Type>::ConstHeadType& get() const
-	{
-		return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
-	}
+    {
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
+    }
 
 	template <int N>
 	typename TypeGetter<N, Type>::HeadType& get()
-	{
-		return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
-	}
+    {
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
+    }
 
 	template <int N>
 	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
-	{
-		Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
-	}
+    {
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
+    }
 
 	bool operator == (const Tuple& other) const
-	{
-		return _data == other._data;
-	}
+    {
+    	return _data == other._data;
+    }
 
 	bool operator != (const Tuple& other) const
-	{
-		return !(_data == other._data);
-	}
+    {
+    	return !(_data == other._data);
+    }
 
 	bool operator < (const Tuple& other) const
-	{
-		return _data < other._data;
-	}
+    {
+    	return _data < other._data;
+    }
 
 private:
 	Type _data;
@@ -786,36 +786,36 @@ struct Tuple<T0,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15,T16,T17,T18,T
 
 	template <int N>
 	typename TypeGetter<N, Type>::ConstHeadType& get() const
-	{
-		return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
-	}
+    {
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
+    }
 
 	template <int N>
 	typename TypeGetter<N, Type>::HeadType& get()
-	{
-		return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
-	}
+    {
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
+    }
 
 	template <int N>
 	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
-	{
-		Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
-	}
+    {
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
+    }
 
 	bool operator == (const Tuple& other) const
-	{
-		return _data == other._data;
-	}
+    {
+    	return _data == other._data;
+    }
 
 	bool operator != (const Tuple& other) const
-	{
-		return !(_data == other._data);
-	}
+    {
+    	return !(_data == other._data);
+    }
 
 	bool operator < (const Tuple& other) const
-	{
-		return _data < other._data;
-	}
+    {
+    	return _data < other._data;
+    }
 
 private:
 	Type _data;
@@ -1043,36 +1043,36 @@ struct Tuple<T0,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15,T16,T17,T18,T
 
 	template <int N>
 	typename TypeGetter<N, Type>::ConstHeadType& get() const
-	{
-		return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
-	}
+    {
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
+    }
 
 	template <int N>
 	typename TypeGetter<N, Type>::HeadType& get()
-	{
-		return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
-	}
+    {
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
+    }
 
 	template <int N>
 	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
-	{
-		Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
-	}
+    {
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
+    }
 
 	bool operator == (const Tuple& other) const
-	{
-		return _data == other._data;
-	}
+    {
+    	return _data == other._data;
+    }
 
 	bool operator != (const Tuple& other) const
-	{
-		return !(_data == other._data);
-	}
+    {
+    	return !(_data == other._data);
+    }
 
 	bool operator < (const Tuple& other) const
-	{
-		return _data < other._data;
-	}
+    {
+    	return _data < other._data;
+    }
 
 private:
 	Type _data;
@@ -3693,37 +3693,37 @@ template <class T0,
         	(t56, NullTypeList()))))))))))))))))))))))))))))))))))))))))))))))))))))))))) {
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -3915,37 +3915,37 @@ template <class T0,
         	(t55, NullTypeList())))))))))))))))))))))))))))))))))))))))))))))))))))))))) {
         	}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -4134,37 +4134,37 @@ template <class T0,
         	(t54, NullTypeList()))))))))))))))))))))))))))))))))))))))))))))))))))))))) {
         	}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -4350,37 +4350,37 @@ template <class T0,
         	(t53, NullTypeList())))))))))))))))))))))))))))))))))))))))))))))))))))))) {
         }
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -4562,37 +4562,37 @@ template <class T0,
         	(t51, typename TypeListType<T52>::HeadType
         	(t52, NullTypeList()))))))))))))))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -4773,37 +4773,37 @@ template <class T0,
 
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -4981,37 +4981,37 @@ template <class T0,
 
         	}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -5184,37 +5184,37 @@ template <class T0,
         (t48, typename TypeListType<T49>::HeadType
         (t49, NullTypeList())))))))))))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -5384,37 +5384,37 @@ template <class T0,
         	(t47, typename TypeListType<T48>::HeadType
         	(t48, NullTypeList()))))))))))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -5582,37 +5582,37 @@ template <class T0,
          	(t47, NullTypeList())))))))))))))))))))))))))))))))))))))))))))))))) {}
 
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -5777,37 +5777,37 @@ template <class T0,
         	(t46, NullTypeList())))))))))))))))))))))))))))))))))))))))))))))))
         	{}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -5969,37 +5969,37 @@ template <class T0,
         	(t45, NullTypeList()))))))))))))))))))))))))))))))))))))))))))))))
 			{}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -6157,37 +6157,37 @@ template <class T0,
         	(t43, typename TypeListType<T44>::HeadType
         	(t44, NullTypeList()))))))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -6342,37 +6342,37 @@ template <class T0,
         	(t42, typename TypeListType<T43>::HeadType
         	(t43, NullTypeList())))))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -6524,37 +6524,37 @@ template <class T0,
         	(t41, typename TypeListType<T42>::HeadType
         	(t42, NullTypeList()))))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -6703,37 +6703,37 @@ template <class T0,
         	(t40, typename TypeListType<T41>::HeadType
         	(t41, NullTypeList())))))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -6879,37 +6879,37 @@ template <class T0,
         	(t39, typename TypeListType<T40>::HeadType
         	(t40, NullTypeList())) ))))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
@@ -7051,37 +7051,37 @@ template <class T0,
         	(t38, typename TypeListType<T39>::HeadType
         	(t39, NullTypeList())) )))))))))))))))))))))))))))))))))))))) {}
 
-    template <int N>
-    typename TypeGetter<N, Type>::ConstHeadType& get() const
+	template <int N>
+	typename TypeGetter<N, Type>::ConstHeadType& get() const
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    typename TypeGetter<N, Type>::HeadType& get()
+	template <int N>
+	typename TypeGetter<N, Type>::HeadType& get()
     {
-        return TypeGetter<N, Type>::get(_data);
+    	return Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data);
     }
 
-    template <int N>
-    void set(typename TypeGetter<N, Type>::ConstHeadType& val)
+	template <int N>
+	void set(typename TypeGetter<N, Type>::ConstHeadType& val)
     {
-        TypeGetter<N, Type>::set(_data, val);
+    	Getter<N>::template get<typename TypeGetter<N, Type>::HeadType, typename Type::HeadType, typename Type::TailType>(_data) = val;
     }
 
-    bool operator == (const Tuple& other) const
+	bool operator == (const Tuple& other) const
     {
-        return _data == other._data;
+    	return _data == other._data;
     }
 
-    bool operator != (const Tuple& other) const
+	bool operator != (const Tuple& other) const
     {
-        return _data != other._data;
+    	return !(_data == other._data);
     }
 
-    bool operator < (const Tuple& other) const
+	bool operator < (const Tuple& other) const
     {
-        return _data < other._data;
+    	return _data < other._data;
     }
 
 private:
