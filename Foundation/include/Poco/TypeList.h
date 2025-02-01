@@ -155,7 +155,39 @@ template <typename T0  = NullTypeList,
 	typename T36 = NullTypeList,
 	typename T37 = NullTypeList,
 	typename T38 = NullTypeList,
-	typename T39 = NullTypeList>
+	typename T39 = NullTypeList,
+	typename T40 = NullTypeList,
+	typename T41 = NullTypeList,
+	typename T42 = NullTypeList,
+	typename T43 = NullTypeList,
+	typename T44 = NullTypeList,
+	typename T45 = NullTypeList,
+	typename T46 = NullTypeList,
+	typename T47 = NullTypeList,
+	typename T48 = NullTypeList,
+	typename T49 = NullTypeList,
+	typename T50 = NullTypeList,
+	typename T51 = NullTypeList,
+	typename T52 = NullTypeList,
+	typename T53 = NullTypeList,
+	typename T54 = NullTypeList,
+	typename T55 = NullTypeList,
+	typename T56 = NullTypeList,
+	typename T57 = NullTypeList,
+	typename T58 = NullTypeList,
+	typename T59 = NullTypeList,
+	typename T60 = NullTypeList,
+	typename T61 = NullTypeList,
+	typename T62 = NullTypeList,
+	typename T63 = NullTypeList,
+	typename T64 = NullTypeList,
+	typename T65 = NullTypeList,
+	typename T66 = NullTypeList,
+	typename T67 = NullTypeList,
+	typename T68 = NullTypeList,
+	typename T69 = NullTypeList,
+	typename T70 = NullTypeList>
+
 struct TypeListType
 	/// TypeListType takes 1 - 40 typename arguments.
 	/// Usage:
@@ -169,7 +201,11 @@ private:
 		TypeListType<T1,T2, T3, T4, T5, T6, T7, T8, T9, T10,
 					T11,T12,T13,T14,T15,T16,T17,T18,T19,T20,
 					T21,T22,T23,T24,T25,T26,T27,T28,T29,T30,
-					T31,T32,T33,T34,T35,T36,T37,T38,T39>::HeadType TailType;
+					T31,T32,T33,T34,T35,T36,T37,T38,T39,T40,
+					T41,T42,T43,T44,T45,T46,T47,T48,T49,T50,
+					T51,T52,T53,T54,T55,T56,T57,T58,T59,T60,
+					T61,T62,T63,T64,T65,T66,T67,T68,T69,T70
+	>::HeadType TailType;
 
 public:
 	typedef TypeList<T0, TailType> HeadType;
