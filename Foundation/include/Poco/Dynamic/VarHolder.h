@@ -483,7 +483,7 @@ private:
 	}
 
 	template <typename T, std::enable_if_t<std::is_same_v<T, bool>, bool> = true>
-	static constexpr int numValDigits(const T& value)
+	static constexpr int numValDigits([[maybe_unused]] const T& value)
 	{
 		return 1;
 	}
