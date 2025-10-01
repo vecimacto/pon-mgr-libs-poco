@@ -19,6 +19,7 @@
 
 
 #include "Poco/Foundation.h"
+#include "Poco/Mutex.h"
 #include "Poco/Runnable.h"
 #include "Poco/SignalHandler.h"
 #include "Poco/Event.h"
@@ -31,20 +32,17 @@
 #if !defined(POCO_NO_SYS_SELECT_H)
 #include <sys/select.h>
 #endif
-#include <errno.h>
 #if defined(POCO_VXWORKS)
 #include <cstring>
 #endif
 
-
 namespace Poco {
-
 
 class Foundation_API ThreadImpl
 {
 public:
-	typedef pthread_t TIDImpl;
-	typedef void (*Callable)(void*);
+	using TIDImpl = pthread_t;
+	using Callable = void (*)(void *);
 
 	enum Priority
 	{
@@ -64,6 +62,14 @@ public:
 	~ThreadImpl();
 
 	TIDImpl tidImpl() const;
+	void setNameImpl(const std::string& threadName);
+	std::string getNameImpl() const;
+#ifndef POCO_NO_THREADNAME
+	std::string getOSThreadNameImpl();
+		/// Returns the thread's name, expressed as an operating system
+		/// specific name value. Return empty string if thread is not running.
+		/// For test used only.
+#endif
 	void setPriorityImpl(int prio);
 	int getPriorityImpl() const;
 	void setOSPriorityImpl(int prio, int policy = SCHED_OTHER);
@@ -72,15 +78,17 @@ public:
 	static int getMaxOSPriorityImpl(int policy);
 	void setStackSizeImpl(int size);
 	int getStackSizeImpl() const;
+	void setSignalMaskImpl(uint32_t sigMask);
 	void startImpl(SharedPtr<Runnable> pTarget);
 	void joinImpl();
 	bool joinImpl(long milliseconds);
 	bool isRunningImpl() const;
-	static void sleepImpl(long milliseconds);
 	static void yieldImpl();
 	static ThreadImpl* currentImpl();
 	static TIDImpl currentTidImpl();
 	static long currentOsTidImpl();
+	bool setAffinityImpl(int coreID);
+	int getAffinityImpl() const;
 
 protected:
 	static void* runnableEntry(void* pThread);
@@ -93,7 +101,7 @@ private:
 	public:
 		CurrentThreadHolder()
 		{
-			if (pthread_key_create(&_key, NULL))
+			if (pthread_key_create(&_key, nullptr))
 				throw SystemException("cannot allocate thread context key");
 		}
 		~CurrentThreadHolder()
@@ -120,7 +128,7 @@ private:
 			prio(PRIO_NORMAL_IMPL),
 			osPrio(),
 			policy(SCHED_OTHER),
-			done(false),
+			done(Event::EVENT_MANUALRESET),
 			stackSize(POCO_THREAD_STACK_SIZE),
 			started(false),
 			joined(false)
@@ -139,8 +147,10 @@ private:
 		int           policy;
 		Event         done;
 		std::size_t   stackSize;
-		bool          started;
-		bool          joined;
+		std::atomic<bool> started;
+		std::atomic<bool> joined;
+		std::string   name;
+		int           affinity;
 		mutable FastMutex mutex;
 	};
 

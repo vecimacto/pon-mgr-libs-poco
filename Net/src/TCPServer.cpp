@@ -20,6 +20,7 @@
 #include "Poco/Exception.h"
 #include "Poco/ErrorHandler.h"
 
+
 using Poco::ErrorHandler;
 
 
@@ -124,19 +125,6 @@ void TCPServer::stop()
 
 void TCPServer::run()
 {
-
-    if(!_pDispatcher->params().getName().empty()) {
-        Poco::Thread::current()->setName(_pDispatcher->params().getName());
-#ifdef __linux__
-        Poco::Thread::current()->setName(_pDispatcher->params().getName());
-		pthread_setname_np(pthread_self(), _pDispatcher->params().getName().c_str());
-#endif
-#ifdef __APPLE__
-        Poco::Thread::current()->setName(_pDispatcher->params().getName());
-        pthread_setname_np(_pDispatcher->params().getName().c_str());
-#endif
-    }
-
 	while (!_stopped)
 	{
 		Poco::Timespan timeout(250000);
@@ -144,6 +132,8 @@ void TCPServer::run()
 		{
 			if (_socket.poll(timeout, Socket::SELECT_READ))
 			{
+				if (_stopped) return;
+
 				try
 				{
 					StreamSocket ss = _socket.acceptConnection();
@@ -151,7 +141,7 @@ void TCPServer::run()
 					if (!_pConnectionFilter || _pConnectionFilter->accept(ss))
 					{
 						// enable nodelay per default: OSX really needs that
-#if defined(POCO_OS_FAMILY_UNIX)
+#if defined(POCO_HAS_UNIX_SOCKET)
 						if (ss.address().family() != AddressFamily::UNIX_LOCAL)
 #endif
 						{
@@ -162,24 +152,30 @@ void TCPServer::run()
 				}
 				catch (Poco::Exception& exc)
 				{
-					ErrorHandler::handle(exc);
+					if (!_stopped)
+						ErrorHandler::handle(exc);
 				}
 				catch (std::exception& exc)
 				{
-					ErrorHandler::handle(exc);
+					if (!_stopped)
+						ErrorHandler::handle(exc);
 				}
 				catch (...)
 				{
-					ErrorHandler::handle();
+					if (!_stopped)
+						ErrorHandler::handle();
 				}
 			}
 		}
 		catch (Poco::Exception& exc)
 		{
-			ErrorHandler::handle(exc);
-			// possibly a resource issue since poll() failed;
-			// give some time to recover before trying again
-			Poco::Thread::sleep(50);
+			if (!_stopped)
+			{
+				ErrorHandler::handle(exc);
+				// possibly a resource issue since poll() failed;
+				// give some time to recover before trying again
+				Poco::Thread::sleep(50);
+			}
 		}
 	}
 }
@@ -197,7 +193,7 @@ int TCPServer::maxThreads() const
 }
 
 
-int TCPServer::totalConnections() const
+Int64 TCPServer::totalConnections() const
 {
 	return _pDispatcher->totalConnections();
 }
@@ -237,18 +233,10 @@ void TCPServer::setConnectionFilter(const TCPServerConnectionFilter::Ptr& pConne
 
 std::string TCPServer::threadName(const ServerSocket& socket)
 {
-#if _WIN32_WCE == 0x0800
-	// Workaround for WEC2013: only the first call to getsockname()
-	// succeeds. To mitigate the impact of this bug, do not call
-	// socket.address(), which calls getsockname(), here.
-	std::string name("TCPServer");
-	#pragma message("Using WEC2013 getsockname() workaround in TCPServer::threadName(). Remove when no longer needed.")
+	std::string name("TCPServer: ");
+	name.append(socket.address().toString());
+
 	return name;
-#else
-    std::string name("TCPServer: ");
-    name.append(socket.address().toString());
-    return name;
-#endif
 }
 
 

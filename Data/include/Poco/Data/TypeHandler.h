@@ -249,55 +249,46 @@ private:
 };
 
 template <typename T>
-class TypeHandler<Nullable<T>> 
+class TypeHandler<Nullable<T>>
 	/// Specialization of type handler for Nullable.
 {
 public:
 
-	static void bind(std::size_t pos, const Nullable<T>& obj, AbstractBinder::Ptr pBinder, AbstractBinder::Direction dir) 
+	static void bind(std::size_t pos, const Nullable<T>& obj, AbstractBinder::Ptr pBinder, AbstractBinder::Direction dir)
 	{
 		poco_assert_dbg (!pBinder.isNull());
-		if (obj.isNull()) 
+		if (obj.isNull())
 		{
 			pBinder->bind(pos++, Poco::Data::Keywords::null, dir);
 		}
-		else 
+		else
 		{
 			pBinder->bind(pos++, obj.value(), dir);
 		}
 	}
-	
-	static void prepare(std::size_t pos, const Nullable<T>& obj, AbstractPreparator::Ptr pPreparator) 
+
+	static void prepare(std::size_t pos, const Nullable<T>& obj, AbstractPreparator::Ptr pPreparator)
 	{
 		poco_assert_dbg (!pPreparator.isNull());
-		if (obj.isNull()) 
+		if (obj.isNull())
 		{
-			pPreparator->prepare(pos++, Poco::Data::Keywords::null);
+			pPreparator->prepare(pos++, T());
 		}
-		else 
+		else
 		{
 			pPreparator->prepare(pos++, obj.value());
 		}
 	}
 
-	static std::size_t size() 
+	static std::size_t size()
 	{
 		return 1u;
 	}
 
-	static void extract(std::size_t pos, Nullable<T>& obj, const Nullable<T>& , AbstractExtractor::Ptr pExt) 
+	static void extract(std::size_t pos, Nullable<T>& obj, const Nullable<T>& , AbstractExtractor::Ptr pExt)
 	{
 		poco_assert_dbg (!pExt.isNull());
-		T val;
-	
-		if (pExt->extract(pos++, val)) 
-		{
-			obj = val;
-		}
-		else 
-		{
-			obj.clear();
-		}
+		pExt->extract(pos++, obj);
 	}
 
 private:
@@ -336,9 +327,9 @@ template <typename TupleType, typename DefValType, typename Type, int N>
 POCO_TUPLE_TYPE_HANDLER_INLINE
 void tupleExtract(std::size_t& pos, TupleType tuple, DefValType defVal, AbstractExtractor::Ptr pExt)
 {
-        Poco::Data::TypeHandler<Type>::extract(pos, tuple.template get<N>(),
-        defVal.template get<N>(), pExt);
-        pos += TypeHandler<Type>::size();
+	Poco::Data::TypeHandler<Type>::extract(pos, tuple.template get<N>(),
+	defVal.template get<N>(), pExt);
+	pos += TypeHandler<Type>::size();
 }
 
 template <class T0,
