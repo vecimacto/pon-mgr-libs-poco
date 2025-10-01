@@ -26,8 +26,8 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:/opt/homebrew/opt/
 
 # Strong default include/lib/rpath hints toward /opt/homebrew (arm64)
 export CPPFLAGS="-I/opt/homebrew/include -I/opt/homebrew/opt/libpq/include -I/opt/homebrew/opt/sqlite/include -I/opt/homebrew/opt/mysql-client/include ${CPPFLAGS:-}"
-export LDFLAGS="-L/opt/homebrew/lib -L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/sqlite/lib -L/opt/homebrew/opt/mysql-client/lib -Wl,-rpath,/opt/homebrew/lib -Wl,-rpath,/opt/homebrew/opt/libpq/lib -Wl,-rpath,/opt/homebrew/opt/sqlite/lib -Wl,-rpath,/opt/homebrew/opt/mysql-client/lib ${LDFLAGS:-}"
-
+export LDFLAGS="-L/opt/homebrew/lib -L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/sqlite/lib -L/opt/homebrew/opt/mysql-client/lib ${LDFLAGS:-}"
+# (no -Wl,-rpath,... here)
 PGROOT="$(brew --prefix libpq)"
 SQLROOT="$(brew --prefix sqlite)"
 MYROOT="$(brew --prefix mysql-client)"
@@ -65,8 +65,9 @@ cmake "$POCO_SRC_DIR" -G "$GENERATOR" \
   -DMYSQL_ROOT_DIR="$MYROOT" \
   -DMYSQL_INCLUDE_DIR="$MYROOT/include" \
   -DMYSQL_LIBRARY="$MYROOT/lib/libmysqlclient.dylib" \
-  -DCMAKE_INSTALL_RPATH="$PGROOT/lib;$SQLROOT/lib;$MYROOT/lib;/opt/homebrew/lib"
-
+  -DCMAKE_INSTALL_RPATH="/opt/homebrew/opt/libpq/lib;/opt/homebrew/opt/sqlite/lib;/opt/homebrew/opt/mysql-client/lib" \
+  -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
+  -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=ON
 # ===== Build =====
 echo "== Building =="
 if [[ "$GENERATOR" == "Unix Makefiles" ]]; then
