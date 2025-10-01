@@ -25,9 +25,9 @@ cmake .. -G "Unix Makefiles" \
   -DSQLite3_ROOT="$SQLROOT" \
   -DSQLite3_INCLUDE_DIR="$SQLROOT/include" \
   -DSQLite3_LIBRARY="$SQLROOT/lib/libsqlite3.dylib" \
-  -DMySQL_ROOT_DIR="$MYROOT" \
-  -DMySQL_INCLUDE_DIR="$MYROOT/include" \
-  -DMySQL_LIBRARY="$MYROOT/lib/libmysqlclient.dylib" \
+  -DMYSQL_ROOT_DIR="$MYROOT" \
+  -DMYSQL_INCLUDE_DIR="$MYROOT/include" \
+  -DMYSQL_LIBRARY="$MYROOT/lib/libmysqlclient.dylib" \
   -DCMAKE_INSTALL_RPATH="$PGROOT/lib;$SQLROOT/lib;$MYROOT/lib;/opt/homebrew/lib"
 
 make -j
