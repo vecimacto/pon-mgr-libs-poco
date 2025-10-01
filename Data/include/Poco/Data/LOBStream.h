@@ -78,7 +78,7 @@ class LOBIOS: public virtual std::ios
 	/// order of the stream buffer and base classes.
 {
 public:
-	LOBIOS(LOB<T>& lob, openmode mode): _buf(lob)
+	LOBIOS(LOB<T>& lob, [[maybe_unused]] openmode mode): _buf(lob)
 		/// Creates the LOBIOS with the given LOB.
 	{
 		poco_ios_init(&_buf);
